@@ -1,0 +1,40 @@
+<html>
+
+  <body>
+    {% if selection == 'customers' %}
+      {% for customer in customersWithCom %}
+        <li>{{customer.first_name}} {{customer.last_name}}</li>
+      {% endfor %}
+    {% elif selection == 'collection' %}
+      {% for collection in collectionsWithNoFeaturedProduct %}
+        <li>{{collection.title}}</li>
+      {% endfor %}
+
+    {% elif selection == 'productsWithLowInventory'%}
+      {% for product in productsWithLowInventory %}
+        <li>{{product.title}}</li>
+      {% endfor %}
+    {% elif selection == 'ordersWithId1'%}
+      {% for order in ordersWithId1 %}
+        <li>{{order.id}}</li>
+      {% endfor %} 
+    {% elif selection == 'orderItemsForProductsInCollection3'%}
+      {% for order in orderItemsForProductsInCollection3 %}
+        <li>{{order.id}}</li>
+      {% endfor %}
+    {% elif selection == 'productsOrdered'%}
+      {% for product in productsOrdered %}
+        <li>{{product.title}}</li>
+      {% endfor %} 
+    {% elif selection == 'lastFiveOrders'%}
+      {% for order in lastFiveOrders %}
+        <li>{{order.id}} -- {{order.customer.first_name}}</li>
+      {% endfor %} 
+    {% elif selection == 'topFiveBestSellingProducts'%}
+      {% for product in topFiveBestSellingProducts %}
+        <li>{{product}}</li>
+      {% endfor %}
+    {% endif %}
+  </body>
+
+</html>
