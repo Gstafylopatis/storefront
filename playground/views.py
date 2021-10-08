@@ -15,7 +15,7 @@ def exercises(request):
     customersWithComeAccounts = Customer.objects.filter(email__endswith='com')
 
     # Collections that don’t have a featured product
-    collectionsWithNoFeaturedProduct = Collection.objects.filter(
+    collections_with_no_featured_product = Collection.objects.filter(
         featured_product__isnull=True)
 
     # Products with low inventory (less than 10)
@@ -90,7 +90,7 @@ def exercises(request):
     return render(request, 'exercises.html', {
         'selection': 'topFiveBestSellingProducts',
         'customersWithCom': list(customersWithComeAccounts),
-        'collectionsWithNoFeaturedProduct': list(collectionsWithNoFeaturedProduct),
+        'collectionsWithNoFeaturedProduct': list(collections_with_no_featured_product),
         'productsWithLowInventory': list(productsWithLowInventory),
         'ordersWithId1': list(ordersWithId1),
         'orderItemsForProductsInCollection3': list(orderItemsForProductsInCollection3),
